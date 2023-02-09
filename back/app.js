@@ -4,9 +4,9 @@ const path = require('path');
 const helmet = require('helmet');
 require('dotenv').config();
 const app = express();
-const postRoutes = require('./routes/post');
-const authRoutes = require('./routes/auth');
-const userRoutes = require('./routes/user')
+const postRoutes = require('./routes/post.js');
+const authRoutes = require('./routes/authentification.js');
+const userRoutes = require('./routes/user.js')
 
 mongoose.connect(process.env.MONGO_CONNEXION,
   { useNewUrlParser: true,
