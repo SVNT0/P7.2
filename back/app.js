@@ -8,6 +8,7 @@ const postRoutes = require('./routes/post.js');
 const authRoutes = require('./routes/authentification.js');
 const userRoutes = require('./routes/user.js')
 
+mongoose.set("strictQuery", true);
 mongoose.connect(process.env.MONGO_CONNEXION,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
