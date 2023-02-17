@@ -4,9 +4,9 @@ import * as Page from '../views/page'
 
 const routes = [
 
-    { path: '/connect', name: 'login', component: Auth.connect },
+    { path: '/connect', name: 'connect', component: Auth.connect },
     { path: '/inscription', component: Auth.inscription },
-    { path: '/:pathMatch(.*)*', redirect: '/login' },
+    { path: '/:pathMatch(.*)*', redirect: '/connect' },
 
     {
         path: '/',
