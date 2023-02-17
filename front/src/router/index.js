@@ -10,9 +10,9 @@ const routes = [
 
     {
         path: '/',
-        name: 'public',
+        name: 'page',
         redirect: '/connect',
-        component: Public.publicLayout,
+        component: Page.layout,
         children: [
             { path: '/home', component: Page.home },
             { path: '/create/', component: Page.create, prop: true },
