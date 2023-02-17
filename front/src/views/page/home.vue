@@ -1,9 +1,9 @@
 <script>
-import navigation from '../components/navigation.vue'
-import footer from '../components/footer.vue'
-import wall from '../components/wall.vue'
-import profilbox from '../components/profilbox.vue'
-import users from '../components/user.vue'
+import navigation from '../../components/navigation.vue'
+import footer from '../../components/footer.vue'
+import wall from '../../components/wall.vue'
+import profilbox from '../../components/profilbox.vue'
+import users from '../../components/user.vue'
 
 import jwt_decode from "jwt-decode"
 
