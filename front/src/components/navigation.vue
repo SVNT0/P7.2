@@ -5,8 +5,8 @@ export default {
     methods: {
         logout() {
             if (confirm("Êtes-vous sûr de vouloir vous déconnecter ?")) {
-                localStorage.removeItem('user');
-                window.location.href  = "/login"
+                localStorage.removeItem('users');
+                window.location.href  = "/connect"
             } else {
                 return false
             }

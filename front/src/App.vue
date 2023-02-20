@@ -1,6 +1,6 @@
 <script>
-import connect from './views/authentification/connect.vue'
-import inscription from './views/authentification/inscription.vue'
+import connect from './views/auth/connect.vue'
+import inscription from './views/auth/inscription.vue'
 import home from './views/page/home.vue'
 import profilbox from './components/profilbox.vue'
 import users from './components/user.vue'
@@ -36,8 +36,8 @@ export default {
         return Promise.reject(error)
     }else{
         if(error.response.status == 401){
-            localStorage.removeItem('user')
-            router.push('/login')
+            localStorage.removeItem('users')
+            router.push('/connect')
         }else{
             store.commit('displayNotif', {d: true, mes: error.response.data.message})
             return Promise.reject(error)

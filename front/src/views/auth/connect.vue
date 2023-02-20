@@ -5,7 +5,7 @@ export default {
   name: 'connect',
   data() {
     return {
-      mode:'login',
+      mode:'connect',
       email: '',
       emailError:'',
       password: '',
@@ -43,7 +43,7 @@ export default {
 
     handleSubmit(event) {
       event.preventDefault()
-      this.$store.dispatch('login', {
+      this.$store.dispatch('connect', {
         email: this.email,
         password: this.password,
         })

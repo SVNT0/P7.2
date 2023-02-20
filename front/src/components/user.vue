@@ -15,12 +15,12 @@ export default {
       numberOfUsers() {
         return (this.users.length == 0) ? 'Aucun utilisateur' : `${this.users.length}`
       },
-      ...mapState(["status", "user"]),
+      ...mapState(["status", "users"]),
     },
 
     methods: {
     getAllUsers() {
-      Axios.get('/user')
+      Axios.get('/users')
       .then(res => this.users = res.data)
       .catch(err => console.log(err))
     },
