@@ -20,7 +20,7 @@ export default {
 <style>
 
 footer {
-  background-color: #555860;
+  background-color: #0037ff;
 }
 
 p {

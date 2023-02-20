@@ -41,7 +41,7 @@ export default {
 <style>
 
 nav {
-    background-color: #555860;
+    background-color: #0037ff;
 }
 
 a {

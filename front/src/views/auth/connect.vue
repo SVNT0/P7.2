@@ -91,6 +91,7 @@ export default {
               <div>
                     <button 
                     :disabled="!validatedFields" 
+                    class="bouton-connexion"
                     :class="{'button-disabled' : !validatedFields}"
                     type="button"
                     @click="handleSubmit">
@@ -124,6 +125,10 @@ export default {
   .drop-right {
     margin-right: -100px;
   }
+}
+
+.bouton-connexion {
+  background: linear-gradient(to right, #0189f8, #0091ff, #0022ff, #0003c6);
 }
 
 @media (min-width: 768px) and (max-width: 992px) {

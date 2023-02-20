@@ -53,8 +53,8 @@ export default {
           <div>
             <h6>Qu'avez vous à dire aujourd'hui ?</h6>
           </div>
-          <router-link to="/createpost">        
-            <button type="button">
+          <router-link to="/create">        
+            <button type="button" class="bouton-publication">
               <font-awesome-icon icon="fa-solid fa-plus" />
                   Nouvelle publication
             </button>
@@ -85,7 +85,8 @@ body {
 }
 
 .home {
-  background-color:#eee
+  background-color:#eee;
+  background-image: url(https://www.stihle-freres.fr/wp-content/uploads/2020/07/open-space.jpg)
   }
 
 
@@ -114,5 +115,10 @@ body {
     flex-direction: column;
   }
 }
+
+.bouton-publication {
+  background: linear-gradient(to right, #0189f8, #0091ff, #0022ff, #0003c6);
+}
+
 
 </style>

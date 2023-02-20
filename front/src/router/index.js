@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import * as Auth from '../views/authentification'
+import * as Auth from '../views/auth'
 import * as Page from '../views/page'
 
 const routes = [

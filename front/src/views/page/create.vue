@@ -107,7 +107,7 @@ export default {
 
 		<div>
 			<h1>Nouvelle publication</h1>
-			<form @submit.prevent="createPost">
+			<form @submit.prevent="create">
 				<div>
 					<label for="title">Titre <span class="require">*</span></label>
 					<input 
@@ -148,6 +148,7 @@ export default {
 					<button 
 						type="submit" 
 						:disabled="!validatedFields"
+						class="ajouter-publication"
 						:class="{'button-disabled' : !validatedFields}"
 					>Ajouter la publication
 					</button>
@@ -165,6 +166,15 @@ export default {
 .require {
     color: #666;
 }
+
+main{
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), url(https://www.stihle-freres.fr/wp-content/uploads/2020/07/open-space.jpg);
+}
+
+.ajouter-publication{
+	background: linear-gradient(to right, #0189f8, #0091ff, #0022ff, #0003c6);
+}
+
 label small {
     color: #999;
     font-weight: normal;
