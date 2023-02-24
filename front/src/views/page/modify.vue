@@ -7,7 +7,7 @@ import {useRoute} from "vue-router";
 export default {
     name: 'modify',
     components: {
-        navigation,
+        navbar,
     },
     data() {
 		return {
@@ -93,43 +93,45 @@ export default {
 <main>
 <navbar></navbar>
 
-<div>
-	<div>
+<div class="container mt-3 mb-5" >
+	<div class="d-flex justify-content-center row">
 
-<!------------ Retour acceuil ------------>
-        <div>
-            <router-link to="/home"> 
+
+        <div class="border-bottom mt-4">
+            <router-link to="/home" class="link-secondary"> 
             <font-awesome-icon icon="fa-solid fa-arrow-left" class="mb-3" />
             </router-link>
-        </div>		
+        </div>	
 
-		<div>
-			<h1>Modifier la publication</h1>	
+		<div class="col-md-8 col-md-offset-2 ">
+			<h1 class="mt-3 mb-4">Modifier la publication</h1>	
 			<form @submit.prevent="editPost">
-				<div>
+				<div class="form-group">
 					<label for="title">Titre <span class="require">*</span></label>
 					<input 
 						type="text" 
+						class="form-control"
 						id="title" 
 						v-model="formData.title"
 						required
 						@focusout="isTitleValid"
 					/>
-					<p v-if="formData.titleError">Le titre est obligatoire et doit contenir entre 3 et 50 caractères</p>
+					<p class="font-italic" v-if="formData.titleError">Le titre est obligatoire et doit contenir entre 3 et 50 caractères</p>
 				</div>	
-				<div>
+				<div class="form-group">
 					<label for="description">Description</label>
 					<textarea 
 					rows="5" 
+					class="form-control" 
 					id="description"
 					v-model="formData.description"
 					@focusout="isDescriptionValid"					 
 					style="resize: none;">
 					</textarea>
 				</div>
-				<div>
+				<div class="form-group mb-2">
 					<p><span class="require">*</span> - champs obligatoires</p>
-					<label for="file">
+					<label for="file" class="btn btn-outline-danger btn-sm" >
 						<font-awesome-icon icon="fa-solid fa-plus" /> Choisir un fichier
 					</label>  
 					<input 
@@ -140,14 +142,15 @@ export default {
 						class="input-file"
 						id="file"
 					/> 
-					<div v-if="this.previewImage" id="imagePreview" :style="{ 'background-image': `url(${previewImage})` }" @click="selectImage"> 
+					<div v-if="this.previewImage" class="m-4 imagePreview" id="imagePreview" :style="{ 'background-image': `url(${previewImage})` }" @click="selectImage"> 
 					</div>					
 				</div>
 
-				<div>
+				<div class="form-group  d-flex justify-content-end">
 					<button 
 					type="submit" 
 					:disabled="!validatedFields" 
+					class="btn btn-danger gradient-custom-2"
 					:class="{'button-disabled' : !validatedFields}"
 					>
                         Modifier la publication

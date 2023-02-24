@@ -58,40 +58,48 @@ export default {
 <template>
 <main>
 
-<div>
-    <div>
-      <div>
-        <div class="drop-right"
-        style="background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px);">
-          <div>
-            <div>
-              <h2>Bienvenue sur</h2>
-              <img src="../../assets/groupomania/icon-left-font-monochrome-white.png" style="width: 200px;" alt="Logo Groupomania">
+<div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5">
+            <div class = text-center>
+              <h2 class="fw-bold">Bienvenue sur</h2>
+              <img class= "mb-5" src="../../assets/groupomania/icon-left-font-monochrome-white.png" style="width: 200px;" alt="Logo_Groupomania">
             </div>
             <form @submit.prevent="handleSubmit">
-            <h4>CONNEXION</h4>
-              <div>
+            <h4 class="text-secondary mb-4">CONNEXION</h4>
+              <!-- Email -->
+              <div class="form-outline mb-4">
                 <input 
                   v-model="email"
                   type="email" 
+                  class="form-control" 
                   placeholder="Adresse mail"
                   @focusout="isEmailValid"/>
-                <p v-if="emailError">Veuillez renseigner une adresse email correcte</p>
+                <p class="font-italic" v-if="emailError">Veuillez renseigner une adresse email correcte</p>
               </div>
-              <div>
+
+              <!-- Mot de passe -->
+              <div class="form-outline mb-4">
                 <input 
                   autocomplete="on"
                   v-model="password"
                   type="password" 
+                  class="form-control" 
                   placeholder="Mot de passe"
                   @focusout="isPasswordValid"/>
-                <p v-if="passwordError">Votre mot de passe doit contenir au moins 8 caractères dont une majuscule et un chiffre</p>
+                <p class="font-italic" v-if="passwordError">Votre mot de passe doit contenir au moins 8 caractères dont une majuscule et un chiffre</p>
               </div>
 
-              <div>
+              <!-- Bouton -->
+              <div class="d-flex justify-content-between flex-column">
                     <button 
                     :disabled="!validatedFields" 
-                    class="bouton-connexion"
+                    class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-5" 
                     :class="{'button-disabled' : !validatedFields}"
                     type="button"
                     @click="handleSubmit">
@@ -99,18 +107,19 @@ export default {
                         <span v-else>Se connecter</span>
                     </button>
               </div>
-                    <div>
-                    <p>Vous n'avez pas encore de compte ? </p>
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                    <p class="mb-0 me-2">Vous n'avez pas encore de compte ? </p>
                     <router-link to="/signup">
-                        <button type="button">Inscrivez-vous</button>
+                        <button type="button" class="btn btn-outline-danger" >Inscrivez-vous</button>
                     </router-link>
                     </div>          
             </form>
           </div>
         </div>
       </div>
-            <div> 
-        <img src="../../assets/groupomania/icon.png"/>
+            <div class="col-lg-6 mb-5 mb-lg-0 d-none d-lg-block d-xl-block"> 
+        <img src="../../assets/groupomania/icon.png" class="w-100 rounded-4 shadow-4"
+          alt="" />
             </div>
     </div>
   </div>
@@ -120,19 +129,19 @@ export default {
 
 
 <style>
+.gradient-custom-2 {
+background: linear-gradient(to right, #0189f8, #0091ff, #0022ff, #0003c6);
+--bs-btn-border-color: none;
+}
 
 @media (min-width: 768px) {
-  .drop-right {
+  .cascading-right {
     margin-right: -100px;
   }
 }
 
-.bouton-connexion {
-  background: linear-gradient(to right, #0189f8, #0091ff, #0022ff, #0003c6);
-}
-
 @media (min-width: 768px) and (max-width: 992px) {
-  .drop-right {
+  .cascading-right {
     margin: 50px;
   }
 }

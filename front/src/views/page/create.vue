@@ -18,7 +18,7 @@ export default {
         		description: '',
 				file:'',
 				titleError:'',
-				titleMinLength: 5,
+				titleMinLength: 2,
 				titleMaxLength: 50,
 				},
 			previewImage: null,
@@ -95,60 +95,61 @@ export default {
 <main>
 <navbar></navbar>
 
-<div>
-	<div>
+<div class="container mt-3 mb-5">
+	<div class="d-flex justify-content-center row">
 
-<!------------ Retour acceuil ------------>
-        <div>
-            <router-link to="/home"> 
-            <font-awesome-icon icon="fa-solid fa-arrow-left"/>
+        <div class="border-bottom mt-4">
+            <router-link to="/home" class="link-secondary"> 
+            <font-awesome-icon icon="fa-solid fa-arrow-left" class="mb-3" />
             </router-link>
-        </div>
+        </div>	
 
-		<div>
-			<h1>Nouvelle publication</h1>
-			<form @submit.prevent="create">
-				<div>
+		<div class="col-md-8 col-md-offset-2 ">
+			<h1 class="mt-3 mb-4">Nouvelle publication</h1>
+			<form @submit.prevent="createPost">
+				<div class="form-group">
 					<label for="title">Titre <span class="require">*</span></label>
 					<input 
 						type="text" 
+						class="form-control"
 						id="title" 
 						v-model="formData.title"
 						required
 						@focusout="isTitleValid"
 					/>
-					<p v-if="formData.titleError">Le titre est obligatoire et doit contenir entre 5 et 50 caractères</p>
+					<p class="font-italic" v-if="formData.titleError">Le titre est obligatoire et doit contenir entre 3 et 50 caractères</p>
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="description">Description</label>
 					<textarea 
 						rows="5" 
+						class="form-control" 
 						id="description"
 						v-model="formData.description"
 						@focusout="isDescriptionValid"					 
 						style="resize: none;">
 					</textarea>
 				</div>
-				<div>
+				<div class="form-group mb-2">
 					<p><span class="require">*</span> - champs obligatoires</p>
-					<label for="file">
-						<font-awesome-icon icon="fa-solid fa-plus"/> Choisir un fichier
+					<label for="file" class="btn btn-outline-danger btn-sm" >
+						<font-awesome-icon icon="fa-solid fa-plus" /> Choisir un fichier
 					</label>  
 					<input 
 						ref="fileInput"
 						@input="pickFile"
 						type="file"
 						accept="image/*, video/*"
-						class="input"
+						class="input-file"
 						id="file"
 					/>
-						<div v-if="this.previewImage" :style="{ 'background-image': `url(${previewImage})` }" alt ="Image de la publication"></div>
+						<div v-if="this.previewImage" class="m-4 imagePreview" :style="{ 'background-image': `url(${previewImage})` }" alt = "Image de la publication"></div>
 				</div>
-				<div>
+				<div class="form-group  d-flex justify-content-end">
 					<button 
 						type="submit" 
-						:disabled="!validatedFields"
-						class="ajouter-publication"
+						:disabled="!validatedFields" 
+						class="btn btn-danger gradient-custom-2"
 						:class="{'button-disabled' : !validatedFields}"
 					>Ajouter la publication
 					</button>
@@ -163,18 +164,17 @@ export default {
 
 <style>
 
-.require {
-    color: #666;
-}
-
 main{
 	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), url(https://www.stihle-freres.fr/wp-content/uploads/2020/07/open-space.jpg);
 }
 
-.ajouter-publication{
+.btn btn-danger gradient-custom-2 {
 	background: linear-gradient(to right, #0189f8, #0091ff, #0022ff, #0003c6);
 }
 
+.require {
+    color: #666;
+}
 label small {
     color: #999;
     font-weight: normal;
@@ -184,7 +184,7 @@ p {
 	color: black;
 }
 
-.input {
+.input-file {
     display: none;
 }
 

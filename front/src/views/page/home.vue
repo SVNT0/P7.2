@@ -3,8 +3,7 @@ import navigation from '../../components/navigation.vue'
 import footer from '../../components/footer.vue'
 import wall from '../../components/wall.vue'
 import profilbox from '../../components/profilbox.vue'
-import users from '../../components/user.vue'
-
+import user from '../../components/user.vue'
 import jwt_decode from "jwt-decode"
 
 export default {
@@ -13,9 +12,9 @@ export default {
     components: {
         navigation,
         profilbox,
-        users,
-        footer,
         wall,
+        footer,
+        user,
     },
 
     methods: {
@@ -40,21 +39,23 @@ export default {
 <template>
 <main class="home">
 
-<div>
-  <div>
-    <div>
+<navbar></navbar>
+
+<div class="container mt-4 mb-5">
+  <div class="d-flex justify-content-between allcards">
+    <div class="container d-flex flex-column pb-4">
       <profilecard></profilecard>
       <userscard v-if="this.getUserData().role === 1"></userscard>
     </div>
     
-    <div>
-      <div>
-        <div>
-          <div>
-            <h6>Qu'avez vous à dire aujourd'hui ?</h6>
+    <div class="col-md-8">
+      <div class="feed">
+        <div class="d-flex justify-content-between align-items-center p-2 bg-white border">
+          <div class="feed-text px-2">
+            <h6 class="text-black-50 mt-2">Quoi de neuf ?</h6>
           </div>
-          <router-link to="/create">        
-            <button type="button" class="bouton-publication">
+          <router-link to="/createpost">        
+            <button type="button" class="btn btn-danger gradient-custom-2  btn-sm">
               <font-awesome-icon icon="fa-solid fa-plus" />
                   Nouvelle publication
             </button>
@@ -67,7 +68,7 @@ export default {
 </div>
 
 
-<div class="scroll" @click="scrollToTop()">
+<div class="bloc-button btn btn-d scrollToTop" @click="scrollToTop()">
   <font-awesome-icon icon="fa-chevron-up"/>
 </div>
 
@@ -80,7 +81,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
 
 body {
-  font-family: 'Inconsolata', sans-serif;
+  font-family: 'Inconsolata';
   animation-duration: 3s;
 }
 
@@ -89,8 +90,12 @@ body {
   background-image: url(https://www.stihle-freres.fr/wp-content/uploads/2020/07/open-space.jpg)
   }
 
+.gradient-custom-2 {
+  background: linear-gradient(to right, #0189f8, #0091ff, #0022ff, #0003c6);
+--bs-btn-border-color: none;
+}
 
-.scroll {
+.scrollToTop {
     width: 40px;
     height: 40px;
     position: fixed;
@@ -115,10 +120,5 @@ body {
     flex-direction: column;
   }
 }
-
-.bouton-publication {
-  background: linear-gradient(to right, #0189f8, #0091ff, #0022ff, #0003c6);
-}
-
 
 </style>
