@@ -32,20 +32,20 @@ export default {
 </script>
 
 <template v-for="user in users" :key="user._id">
-  <section class="card">
-    <div class = "menu-deroulant">
-      <div data-bs-toggle="menu-deroulant" >
+  <section class="card shadow rounded h-20 border mb-5 pb-4 position-relative" >
+    <div class = "dropdown p-2 position-absolute top-0 end-0 m-2" >
+      <div data-bs-toggle="dropdown" >
         <font-awesome-icon icon="fa-solid fa-ellipsis-vertical" />
       </div>
-      <ul class="menu-deroulant-menu" >
-        <li><a @click="deleteUser()">Supprimer mon compte</a></li>
+      <ul class="dropdown-menu" >
+        <li><a class="dropdown-item edit" @click="deleteUser()">Supprimer mon compte</a></li>
       </ul>
     </div>
-    <div>
+    <div class="card-body text-center">
       <img src="../assets/groupomania/default-avatar.png" alt="avatar"
-         style="width: 150px;">
-      <h5>{{ users.firstName }} {{ users.lastName }}</h5>
-      <p>{{ users.email }}</p>
+        class="rounded-circle img-fluid" style="width: 150px;">
+      <h5 class="my-3">{{ users.firstName }} {{ users.lastName }}</h5>
+      <p class="text-muted mb-1">{{ users.email }}</p>
     </div>
   </section>
 </template>

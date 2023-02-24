@@ -1,7 +1,6 @@
 <script>
 import Axios from '../config/axios-config.js';
 import jwt_decode from "jwt-decode"
-
 import moment from 'moment/min/moment-with-locales'
 import 'moment/locale/fr'
 
@@ -53,7 +52,7 @@ export default {
         .catch(err => console.log(err))
 
         if (this.posts.userId == userId) { 
-          return alert("Vous n'avez pas les droits pour modifier cette publication")     
+          return alert("Vous n'êtes pas autoriser à modifier cette publication")     
         } else {
           return this.$router.push({name:'editPost', params: {id: postId}})
         }
@@ -64,7 +63,7 @@ export default {
       let postId = this.posts[index].post._id
       if (
           window.confirm(
-            "Êtes-vous sûr de vouloir supprimer cette publication ?"
+            "Voulez vous vraiment supprimer cette publication ?"
           )
       ) 
       Axios.delete('/post/'+postId, {
@@ -73,7 +72,7 @@ export default {
 					},        
       })
       .then(res => this.posts.splice(index, 1))
-      .catch(err => alert("Vous n'avez pas les droits pour supprimer cette publication"))
+      .catch(err => alert("Vous n'êtes pas autoriser à supprimer cette publication"))
       },
 
       addLikes(index) {
@@ -113,34 +112,34 @@ export default {
 
 <template>
 <main>
-
-
-  <!------------------- Publication ------------------->
+<!------------------- Publication Card ------------------->
 <section 
-  v-for="(post, index) in posts" :key="post._id">   
-  <div>
-    <div><img style="width: 45px;" alt="Avatar" src="../assets/groupomania/default-avatar.png">
-        <div>
-            <span>{{ post.user.firstName }} {{ post.user.lastName }}</span>
-            <span>Posté il y a {{ dateTime(post.post.createAt) }}</span>
+  v-for="(post, index) in posts" :key="post._id"
+  class="bg-white border mt-2">   
+  <div class="d-flex flex-row justify-content-between align-items-center p-3">
+    <div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle shadow-2" style="width: 45px;" alt="Avatar" src="../assets/images/png-clipart-computer-icons-user-profile-avatar-avatar-heroes-monochrome.png">
+        <div class="d-flex flex-column flex-wrap ml-2">
+            <span class="font-weight-bold">{{ post.user.firstName }} {{ post.user.lastName }}</span>
+            <span class="text-black-50 time">Posté il y a {{ dateTime(post.post.createAt) }}</span>
         </div>
     </div>
-    <button class= "menu-deroulant bouton"  v-if="post.user._id === this.$store.state.user.userId || this.getUserData().role === 1">
-        <div data-bs-toggle="menu-deroulant">
+    <button class= "dropdown p-2 btn btn-lg"  v-if="post.user._id === this.$store.state.user.userId || this.getUserData().role === 1">
+        <div data-bs-toggle="dropdown">
         <font-awesome-icon icon="fa-solid fa-ellipsis-vertical"/>
         </div>
-        <ul class="menu-deroulant-menu">
-            <li><a 
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item edit" 
             @click="editPost(post.post._id)">Modifier</a></li>
-            <li><hr></li>
-            <li><a @click="deletePost(index)">Supprimer</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item"
+            @click="deletePost(index)"> Supprimer </a></li>
         </ul>
     </button>
   </div>
   <div>
-    <div><h5>{{post.post.title}}</h5></div>
-    <div><span>{{post.post.description}}</span></div>
-    <div class="imageUrl" v-if="post.post.imageUrl">
+    <div class="p-2 px-3 pt-3"><h5>{{post.post.title}}</h5></div>
+    <div class="p-2 px-3"><span>{{post.post.description}}</span></div>
+    <div class="imageUrlContainer" v-if="post.post.imageUrl">
         <div>
           <div class="feed-image">
             <img class="onlyimageUrl"
@@ -150,16 +149,17 @@ export default {
         </div>
     </div>
 
-    <div class="bouton">
-      <div @click="addLikes(index)">
-        <font-awesome-icon v-if="post.post.usersLiked.includes(this.$store.state.user.userId)" class="icon red" icon="fa-solid fa-heart"/>
-        <font-awesome-icon v-else class="icon grey" icon="fa-solid fa-heart"/>
-        <span id="count" data-count="0">{{post.post.likes}}</span> 
+    <div class="card_button pt-3 border-top">
+      <div class="card_button_likes d-flex justify-content-end align-items-center" @click="addLikes(index)">
+        <font-awesome-icon v-if="post.post.usersLiked.includes(this.$store.state.user.userId)" class="fa-solid one red" icon="fa-solid fa-heart"/>
+        <font-awesome-icon v-else class="fa-solid two grey" icon="fa-solid fa-heart"/>
+        <span class="count" id="count" data-count="0">{{post.post.likes}}</span> 
       </div>
     </div>
 
   </div>
 </section>
+<!------------------- Publication Card ------------------->
 </main>
 </template>
 
@@ -174,24 +174,24 @@ export default {
   gap: 10px;
 }
 
-.menu-deroulant {
+.dropdown {
   cursor: pointer;
 }
-.menu-deroulant-menu li {
+.dropdown-menu li {
   position: relative;
 }
-.menu-deroulant-menu {
+.dropdown-menu .dropdown-submenu {
   display: none;
   position: absolute;
   left: 100%;
   top: -7px;
 }
-.menu-deroulant-menu {
+.dropdown-menu .dropdown-submenu-left {
   right: 100%;
   left: auto;
 }
 
-.imageUrl {
+.imageUrlContainer {
   display: flex;
   margin: 10px 0px;
   max-width: 100%;
@@ -204,9 +204,14 @@ export default {
   padding: 10px 0px;
 }
 
-.bouton {
+.card_button {
     margin: 20px 15px 15px 15px;
     position: relative;
+    &_likes svg{
+        &.one{
+            font-size: 20px;
+            margin: 17px;
+        }
     cursor: pointer;
     margin-right: 16px;
     position: absolute;
@@ -215,6 +220,7 @@ export default {
     font-size:22px;
     transition:200ms;
     }
+}
 
 .red {
   color: #FD2D01;

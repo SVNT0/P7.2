@@ -8,12 +8,12 @@ export default {
 
 <template>
 
-<!-- Footer -->
-<footer>
-  <section>
+<footer class="text-center text-lg-start text-muted bg-gradient">
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <div>
+    </div>
   </section>
 </footer>
-<!-- Footer -->
 
 </template>
 

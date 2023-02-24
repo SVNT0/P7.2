@@ -3,7 +3,7 @@ import Axios from '../config/axios-config.js';
 import { mapState } from "vuex";
 
 export default {
-    name: 'users',
+    name: 'user',
 
     data() {
       return {
@@ -15,12 +15,12 @@ export default {
       numberOfUsers() {
         return (this.users.length == 0) ? 'Aucun utilisateur' : `${this.users.length}`
       },
-      ...mapState(["status", "users"]),
+      ...mapState(["status", "user"]),
     },
 
     methods: {
     getAllUsers() {
-      Axios.get('/users')
+      Axios.get('/user')
       .then(res => this.users = res.data)
       .catch(err => console.log(err))
     },
@@ -39,12 +39,12 @@ export default {
 </script>
 
 <template >
-  <section class="userlist" >
-    <div class="userbox">
-      <h5 class="list">Liste des utilisateurs({{ numberOfUsers }})</h5>
-      <div class="cardusers" v-for="(user,index) in users" :key="user._id">
-        <div class="delete" @click="deleteUsers(index)">
-          <font-awesome-icon class="icon" icon="fa-solid fa-trash-can" />
+  <section class="listusers card rounded border pb-2" >
+    <div class="card-body text-center overflow-auto">
+      <h5 class="pb-4">Liste des utilisateurs ({{ numberOfUsers }})</h5>
+      <div class="mb-3 card cardusers pt-2" v-for="(user,index) in users" :key="user._id">
+        <div class="del" @click="deleteUsers(index)">
+          <font-awesome-icon class="trash" icon="fa-solid fa-trash-can" />
         </div>
         <div>
           <p>{{ user.firstName }} {{ user.lastName }}</p>
@@ -57,7 +57,7 @@ export default {
 
 <style>
 
-.userlist {
+.listusers {
   background-color: #D9D9D9;
   height: 400px;
 }
@@ -68,7 +68,7 @@ export default {
   opacity: 0.8;
 }
 
-.icon{
+.trash{
   opacity: 0;
   position: absolute;
   padding: 10% 46%;
@@ -76,20 +76,20 @@ export default {
   right: 0px;
 }
 
-.icon:hover{
+.trash:hover{
   opacity: 1;
 }
 
 
 @media (max-width: 768px) {
-  .icon{
+  .trash{
     padding: 5% 48%;
     right: 0px;
   }
 }
 
 @media (max-width: 480px) {
-  .icon{
+  .trash{
     padding: 7% 48%;
     right: 0px;
   }
