@@ -13,7 +13,7 @@ import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 import App from './App.vue'
 import router from './router'
-import store from './store/' 
+import config from './config/' 
 
 const app = createApp(App)
 
@@ -27,6 +27,6 @@ library.add(faChevronUp)
 
 createApp(App)
 .use(router)
-.use(store)
+.use(config)
 .component("font-awesome-icon", FontAwesomeIcon)
 .mount('#app')
