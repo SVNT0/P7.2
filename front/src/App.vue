@@ -3,7 +3,7 @@ import connect from './views/auth/connect.vue'
 import inscription from './views/auth/inscription.vue'
 import home from './views/page/home.vue'
 import profilbox from './components/profilbox.vue'
-import users from './components/user.vue'
+import user from './components/user.vue'
 import wall from './components/wall.vue'
 import create from './views/page/create.vue'
 import navigation from './components/navigation.vue'
@@ -19,7 +19,7 @@ export default {
     footer,
     home,
     profilbox,
-    users,
+    user,
     wall,
     create,
   },
