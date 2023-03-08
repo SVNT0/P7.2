@@ -2,10 +2,10 @@
 import { mapState } from 'vuex'
 
 export default {
-  name: 'connect',
+  name: 'login',
   data() {
     return {
-      mode:'connect',
+      mode:'login',
       email: '',
       emailError:'',
       password: '',
@@ -43,7 +43,7 @@ export default {
 
     handleSubmit(event) {
       event.preventDefault()
-      this.$store.dispatch('connect', {
+      this.$store.dispatch('login', {
         email: this.email,
         password: this.password,
         })

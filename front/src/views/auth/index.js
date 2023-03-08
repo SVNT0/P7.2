@@ -1,7 +1,7 @@
-import connect from './connect.vue'
-import inscription from './inscription.vue'
+import login from './login.vue'
+import signup from './signup.vue'
 
 export {
-    connect,
-    inscription
+    login,
+    signup
 }

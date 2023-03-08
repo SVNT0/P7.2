@@ -1,12 +1,12 @@
 <script>
-import navigation from '../../components/navigation.vue'
+import navbar from '../../components/navbar.vue'
 import { mapState } from 'vuex';
 import Axios from '../../config/axios-config.js'
 
 export default {
     name: 'create',
     components: {
-        navigation,
+        navbar,
     },
     data() {
 		return {

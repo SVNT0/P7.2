@@ -1,5 +1,5 @@
 <script>
-import navigation from '../../components/navigation.vue'
+import navbar from '../../components/navbar.vue'
 import footer from '../../components/footer.vue'
 import wall from '../../components/wall.vue'
 import profilbox from '../../components/profilbox.vue'
@@ -10,7 +10,7 @@ export default {
     name: 'home',
 
     components: {
-        navigation,
+        navbar,
         profilbox,
         wall,
         footer,

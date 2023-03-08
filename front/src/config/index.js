@@ -46,7 +46,7 @@ const store = createStore({
     login: ({ commit }, data) => {
       commit('setStatus', 'loading');
       return new Promise((resolve, reject) => {
-        Axios.post('/auth/connect', data)
+        Axios.post('/auth/login', data)
           .then((response) => {
             commit('setStatus', 'login');
             commit('logUser', response.data);
@@ -65,7 +65,7 @@ const store = createStore({
       commit('setStatus', 'loading');
       return new Promise((resolve, reject) => {
         commit;
-        Axios.post('/auth/inscription', data)
+        Axios.post('/auth/signup', data)
           .then((response) => {
             commit('setStatus', 'created');
             resolve(response);
@@ -81,4 +81,4 @@ const store = createStore({
   }
 })
 
-export default config;
+export default store;

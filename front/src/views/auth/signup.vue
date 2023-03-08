@@ -2,10 +2,10 @@
 import { mapState } from 'vuex'
 
 export default {
-    name: 'inscription',
+    name: 'signup',
     data() {
       return {
-        mode:'inscription',
+        mode:'login',
         lastName: '',
         lastNameError: '',
         firstName: '',
@@ -45,14 +45,14 @@ export default {
       },
       handleSubmit() {
         const self = this;
-        this.$store.dispatch('inscription', {
+        this.$store.dispatch('signup', {
           lastName: this.lastName,
           firstName: this.firstName,
           email: this.email,
           password: this.password,
           }).then ((response) => {
           console.log(response);
-          self.$router.push('/connect');
+          self.$router.push('/login');
         }, function(error) {
           console.log(error)
         })

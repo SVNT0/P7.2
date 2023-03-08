@@ -1,21 +1,21 @@
 <script>
-import connect from './views/auth/connect.vue'
-import inscription from './views/auth/inscription.vue'
+import login from './views/auth/login.vue'
+import signup from './views/auth/signup.vue'
 import home from './views/page/home.vue'
 import profilbox from './components/profilbox.vue'
 import user from './components/user.vue'
 import wall from './components/wall.vue'
 import create from './views/page/create.vue'
-import navigation from './components/navigation.vue'
+import navbar from './components/navbar.vue'
 import footer from './components/footer.vue'
 
 
 export default {
   name: 'App', 
   components: {
-    connect,
-    inscription,
-    navigation,
+    login,
+    signup,
+    navbar,
     footer,
     home,
     profilbox,
@@ -36,7 +36,7 @@ export default {
         return Promise.reject(error)
     }else{
         if(error.response.status == 401){
-            localStorage.removeItem('users')
+            localStorage.removeItem('user')
             router.push('/connect')
         }else{
             store.commit('displayNotif', {d: true, mes: error.response.data.message})

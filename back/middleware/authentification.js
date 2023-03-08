@@ -12,7 +12,11 @@ module.exports = (req, res, next) => {
     const decodedToken = jwt.verify(token, process.env.TOKEN);
     //Récupération de l'userID dans le token précédemment décodé
     const userId = decodedToken.userId;
-
+    const userRole = decodedToken.role
+    req.auth = {
+        userId: userId,
+        role : userRole
+    };
     // Vérification de la concordance entre les clés utilisateurs du token et de la requête
     if (req.body.userId && req.body.userId !== userId) {
       //Levée d'erreur si la concordance est fausse
