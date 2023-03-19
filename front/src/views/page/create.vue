@@ -164,8 +164,8 @@ export default {
 
 <style>
 
-main{
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), url(https://www.stihle-freres.fr/wp-content/uploads/2020/07/open-space.jpg);
+main {
+	height: 100%;
 }
 
 .btn btn-danger gradient-custom-2 {

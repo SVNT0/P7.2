@@ -1,7 +1,7 @@
 <script>
 
 export default {
-    name: 'footer'
+    name: 'myfooter'
 }
 
 </script>
@@ -21,6 +21,9 @@ export default {
 
 footer {
   background-color: #0037ff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 p {

@@ -7,7 +7,7 @@ import user from './components/user.vue'
 import wall from './components/wall.vue'
 import create from './views/page/create.vue'
 import navbar from './components/navbar.vue'
-import footer from './components/footer.vue'
+import myfooter from './components/myfooter.vue'
 
 
 export default {
@@ -16,7 +16,7 @@ export default {
     login,
     signup,
     navbar,
-    footer,
+    myfooter,
     home,
     profilbox,
     user,

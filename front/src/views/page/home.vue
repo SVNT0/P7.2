@@ -1,6 +1,6 @@
 <script>
 import navbar from '../../components/navbar.vue'
-import footer from '../../components/footer.vue'
+import myfooter from '../../components/myfooter.vue'
 import wall from '../../components/wall.vue'
 import profilbox from '../../components/profilbox.vue'
 import user from '../../components/user.vue'
@@ -13,7 +13,7 @@ export default {
         navbar,
         profilbox,
         wall,
-        footer,
+        myfooter,
         user,
     },
 
@@ -44,8 +44,8 @@ export default {
 <div class="container mt-4 mb-5">
   <div class="d-flex justify-content-between allcards">
     <div class="container d-flex flex-column pb-4">
-      <profilecard></profilecard>
-      <userscard v-if="this.getUserData().role === 1"></userscard>
+      <profilbox></profilbox>
+      <user v-if="this.getUserData().role === 1"></user>
     </div>
     
     <div class="col-md-8">
@@ -61,7 +61,7 @@ export default {
             </button>
           </router-link>
         </div>
-            <card></card>
+            <wall></wall>
       </div>
     </div>
   </div>
@@ -72,7 +72,7 @@ export default {
   <font-awesome-icon icon="fa-chevron-up"/>
 </div>
 
-<footerpage></footerpage>
+<myfooter></myfooter>
 </main>
 </template>
 
@@ -80,14 +80,19 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
 
+
 body {
   font-family: 'Inconsolata';
   animation-duration: 3s;
+  background-image: url("/src/assets/groupomania/background.jpg");
+  height: 100%;
+  background-size: cover;
 }
 
 .home {
   background-color:#eee;
-  background-image: url(https://www.stihle-freres.fr/wp-content/uploads/2020/07/open-space.jpg)
+  background-image: url("/src/assets/groupomania/background.jpg");
+  background-size: cover;
   }
 
 .gradient-custom-2 {

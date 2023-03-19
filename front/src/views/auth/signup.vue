@@ -150,7 +150,7 @@ export default {
         </div>
       </div>
                   <div class="col-lg-6 mb-5 mb-lg-0 d-none d-lg-block d-xl-block"> 
-        <img src="../../assets/groupomania/icon.png" class="w-100 rounded-4 shadow-4"
+        <img class="w-100 rounded-4 shadow-4"
           alt="" />
             </div>
     </div>

@@ -68,7 +68,7 @@ export default {
           <div class="card-body p-5 shadow-5">
             <div class = text-center>
               <h2 class="fw-bold">Bienvenue sur</h2>
-              <img class= "mb-5" src="../../assets/groupomania/icon-left-font-monochrome-white.png" style="width: 200px;" alt="Logo_Groupomania">
+              <img class= "mb-5" src="../../assets/groupomania/icon-left-font-monochrome-black.png" style="width: 200px;" alt="Logo_Groupomania">
             </div>
             <form @submit.prevent="handleSubmit">
             <h4 class="text-secondary mb-4">CONNEXION</h4>
@@ -118,7 +118,7 @@ export default {
         </div>
       </div>
             <div class="col-lg-6 mb-5 mb-lg-0 d-none d-lg-block d-xl-block"> 
-        <img src="../../assets/groupomania/icon.png" class="w-100 rounded-4 shadow-4"
+        <img class="w-100 rounded-4 shadow-4"
           alt="" />
             </div>
     </div>
@@ -129,6 +129,19 @@ export default {
 
 
 <style>
+
+body {
+  font-family: 'Inconsolata';
+  animation-duration: 3s;
+  height: 100%;
+}
+
+#app {
+  background-image: url("/src/assets/groupomania/background.jpg");
+  background-size: cover;
+  bottom: 0;
+}
+
 .gradient-custom-2 {
 background: linear-gradient(to right, #0189f8, #0091ff, #0022ff, #0003c6);
 --bs-btn-border-color: none;
