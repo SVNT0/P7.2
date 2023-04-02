@@ -45,7 +45,7 @@ export default {
 			}
 		},
 
-        editPost() {
+        modify() {
 			const token = this.$store.state.user.token;
             let postId = this.formData._id;
 			let input = this.$refs.fileInput
@@ -105,7 +105,7 @@ export default {
 
 		<div class="col-md-8 col-md-offset-2 ">
 			<h1 class="mt-3 mb-4">Modifier la publication</h1>	
-			<form @submit.prevent="editPost">
+			<form @submit.prevent="modify">
 				<div class="form-group">
 					<label for="title">Titre <span class="require">*</span></label>
 					<input 
