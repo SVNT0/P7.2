@@ -9,7 +9,7 @@ exports.signup = (req, res, next) => {
     .then(hash => {
         const user = new User({
         nom: req.body.nom,
-        prénom: req.body.prenom,
+        prénom: req.body.prénom,
         email: req.body.email,
         password: hash
         });
@@ -37,7 +37,7 @@ exports.login = (req, res, next) => {
                         token: jwt.sign(
                             { userId: user._id,
                             nom: user.nom,
-                            prenom: user.prenom,
+                            prénom: user.prénom,
                             email: user.email,
                             role: user.role
                             },

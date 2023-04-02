@@ -49,7 +49,7 @@ exports.createPost = async (req, res, next) => {
 };
 
 // Modification
-exports.editPost = (req, res, next) => {
+exports.modify = (req, res, next) => {
     Post.findOne({_id: req.params.id})
     .then((post) => {
         const oldUrl = post.imageUrl;

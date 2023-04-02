@@ -12,7 +12,7 @@ exports.getAllUsers = (req, res, next) => {
 // Recupération d'un utilisateur
 exports.getOneUser = (req, res, next) => {
     User.findOne({
-        attributes: ['nom', 'prenom', 'id', 'email'],
+        attributes: ['nom', 'prénom', 'id', 'email'],
         where: { id: req.params.id }
     })
     .then((user) => res.status(200).json(user))

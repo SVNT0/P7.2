@@ -54,7 +54,7 @@ export default {
           <div class="feed-text px-2">
             <h6 class="text-black-50 mt-2">Quoi de neuf ?</h6>
           </div>
-          <router-link to="/createpost">        
+          <router-link to="/create">        
             <button type="button" class="btn btn-danger gradient-custom-2  btn-sm">
               <font-awesome-icon icon="fa-solid fa-plus" />
                   Nouvelle publication

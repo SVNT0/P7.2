@@ -38,7 +38,7 @@ export default {
           .catch(err => console.log(err))
       }, 
 
-      editPost(postId) {
+      modify(postId) {
         const token = this.$store.state.user.token;
         const userId = this.$store.state.user.userId
         Axios.get('/post/'+postId, {
@@ -54,7 +54,7 @@ export default {
         if (this.posts.userId == userId) { 
           return alert("Vous n'êtes pas autoriser à modifier cette publication")     
         } else {
-          return this.$router.push({name:'editPost', params: {id: postId}})
+          return this.$router.push({name:'modify', params: {id: postId}})
         }
       },
 
@@ -117,9 +117,9 @@ export default {
   v-for="(post, index) in posts" :key="post._id"
   class="bg-white border mt-2">   
   <div class="d-flex flex-row justify-content-between align-items-center p-3">
-    <div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle shadow-2" style="width: 45px;" alt="Avatar" src="../assets/images/png-clipart-computer-icons-user-profile-avatar-avatar-heroes-monochrome.png">
+    <div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle shadow-2" style="width: 45px;" alt="Avatar" src="../assets/groupomania/default-avatar.png">
         <div class="d-flex flex-column flex-wrap ml-2">
-            <span class="font-weight-bold">{{ post.user.firstName }} {{ post.user.lastName }}</span>
+            <span class="font-weight-bold">{{ post.user.prénom }} {{ post.user.nom }}</span>
             <span class="text-black-50 time">Posté il y a {{ dateTime(post.post.createAt) }}</span>
         </div>
     </div>
@@ -129,7 +129,7 @@ export default {
         </div>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item edit" 
-            @click="editPost(post.post._id)">Modifier</a></li>
+            @click="modify(post.post._id)">Modifier</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item"
             @click="deletePost(index)"> Supprimer </a></li>

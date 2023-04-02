@@ -12,8 +12,8 @@ export default {
 		return {
 			formData: {
 				userId: '',
-				lastName: '',
-				firstName:'',
+				nom: '',
+				prénom:'',
         		title: '',
         		description: '',
 				file:'',
@@ -61,7 +61,7 @@ export default {
 			}
 		},
 
-		createPost(e) {
+		create(e) {
 			const token = this.$store.state.user.token;
 			const userId = this.$store.state.user.userId;
 			let input = this.$refs.fileInput
@@ -106,7 +106,7 @@ export default {
 
 		<div class="col-md-8 col-md-offset-2 ">
 			<h1 class="mt-3 mb-4">Nouvelle publication</h1>
-			<form @submit.prevent="createPost">
+			<form @submit.prevent="create">
 				<div class="form-group">
 					<label for="title">Titre <span class="require">*</span></label>
 					<input 

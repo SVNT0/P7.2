@@ -44,7 +44,7 @@ export default {
     <div class="card-body text-center">
       <img src="../assets/groupomania/default-avatar.png" alt="avatar"
         class="rounded-circle img-fluid" style="width: 150px;">
-      <h5 class="my-3">{{ users.firstName }} {{ users.lastName }}</h5>
+      <h5 class="my-3">{{ users.prénom }} {{ users.nom }}</h5>
       <p class="text-muted mb-1">{{ users.email }}</p>
     </div>
   </section>

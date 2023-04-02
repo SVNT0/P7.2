@@ -47,7 +47,7 @@ export default {
           <font-awesome-icon class="trash" icon="fa-solid fa-trash-can" />
         </div>
         <div>
-          <p>{{ user.firstName }} {{ user.lastName }}</p>
+          <p>{{ user.prénom }} {{ user.nom }}</p>
           <p>{{ user.email }} </p>
         </div>
       </div>

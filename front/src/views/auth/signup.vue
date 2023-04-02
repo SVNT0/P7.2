@@ -6,10 +6,10 @@ export default {
     data() {
       return {
         mode:'login',
-        lastName: '',
-        lastNameError: '',
-        firstName: '',
-        firstNameError: '',
+        nom: '',
+        nomError: '',
+        prénom: '',
+        prénomError: '',
         email: '',
         emailError:'',
         password: '',
@@ -20,7 +20,7 @@ export default {
   },
     computed: {
       validatedFields() {
-          if (this.lastName != "" && this.firstName != "" && this.email != "" && this.password != "" && this.emailError !== true && this.passwordError !== true) {
+          if (this.nom != "" && this.prénom != "" && this.email != "" && this.password != "" && this.emailError !== true && this.passwordError !== true) {
             return true;
           } else {
             return false;
@@ -46,8 +46,8 @@ export default {
       handleSubmit() {
         const self = this;
         this.$store.dispatch('signup', {
-          lastName: this.lastName,
-          firstName: this.firstName,
+          nom: this.nom,
+          prénom: this.prénom,
           email: this.email,
           password: this.password,
           }).then ((response) => {
@@ -74,7 +74,7 @@ export default {
           <div class="card-body p-5 shadow-5">
             <div class = "text-center">
               <h2 class="fw-bold">Bienvenue sur</h2>
-              <img class= "mb-5" src="../../assets/groupomania/icon-left-font-monochrome-white.png" style="width: 200px;" alt="Logo_Groupomania">
+              <img class= "mb-5" src="../../assets/groupomania/icon-left-font-monochrome-black.png" style="width: 200px;" alt="Logo_Groupomania">
             </div>
             <form @submit="handleSubmit">
             <h4 class="text-secondary mb-4">INSCRIPTION</h4>
@@ -83,7 +83,7 @@ export default {
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <input 
-                        v-model="lastName"
+                        v-model="nom"
                         type="text" 
                         class="form-control" 
                         placeholder="Nom"
@@ -93,7 +93,7 @@ export default {
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <input 
-                        v-model="firstName"
+                        v-model="prénom"
                         type="text" 
                         class="form-control" 
                         placeholder="Prénom" 
