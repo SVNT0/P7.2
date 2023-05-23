@@ -4,8 +4,6 @@
    ```sh
    npm install
    ```
-* Créer un dossier /images 
-
 * Lancer le serveur
    ```sh
    npm run start
